@@ -1,0 +1,13 @@
+#!/bin/sh
+
+exec docker run \
+    --rm \
+    --tty \
+    --interactive \
+    --device=/dev/net/tun \
+    --name=ovpn2socks \
+    --cap-add=NET_ADMIN \
+    --publish 10800:10800 \
+    --volume "$(realpath "$1"):/ovpn.conf:ro" \
+    --sysctl net.ipv6.conf.all.disable_ipv6=0 \
+    zenexas/openvpn-client-socks
