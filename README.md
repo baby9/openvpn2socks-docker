@@ -9,7 +9,7 @@ docker run -d \
   --name=ovpn2socks \
   --cap-add=NET_ADMIN \
   --device=/dev/net/tun \
-  --publish 10800:10800 \
+  --publish 10800:1080 \
   --volume /openvpn/directory/config.ovpn:/ovpn.conf:ro \
   zenexas/openvpn-client-socks
 ```

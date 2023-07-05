@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-[ -f /etc/openvpn/up.sh ] && /etc/openvpn/up.sh "$@"
+/etc/openvpn/update-resolv-conf.sh "$@"
 /usr/sbin/sockd -D
