@@ -19,9 +19,8 @@ COPY sockd.conf /etc/
 COPY update-resolv-conf.sh /etc/openvpn/
 RUN chmod +x /etc/openvpn/update-resolv-conf.sh
 
-HEALTHCHECK --interval=60s --timeout=15s \
-			--start-period=120s \
-			CMD curl -L 'https://www.cloudflare.com/cdn-cgi/trace'
+HEALTHCHECK --interval=60s --timeout=15s --start-period=120s \
+	CMD curl -L 'https://www.cloudflare.com/cdn-cgi/trace'
 
 EXPOSE 10800
 
